@@ -1,0 +1,29 @@
+[Problem Name: Lemonade Change](https://leetcode.com/problems/lemonade-change/description/?envType=daily-question&envId=2024-08-15)
+
+class Solution {
+public:
+    bool lemonadeChange(vector<int>& bills) {
+        unordered_map<int, int>mp;
+        for(auto bill : bills){
+            
+            if(bill == 10){
+                if(mp.find(5) != mp.end() && mp[5] > 0)
+                    mp[5]--;
+                else
+                    return false;
+            }
+            if(bill == 20){
+                if(mp[10] > 0 && mp[5] > 0){
+                    mp[10]--;
+                    mp[5]--;
+                }
+                else if(mp[5] >= 3)
+                    mp[5] -= 3;
+                else
+                    return false;;
+            } 
+            mp[bill]++;
+        }
+        return true;
+    }
+};
