@@ -4,7 +4,8 @@
 class Solution {
 public:
     int maxDistance(vector<vector<int>>& arrays) {
-    //brute force TC->O(n^2)
+    //brute force 
+    //Time Complexity->O(n^2)
     
         int maxDiff = INT_MIN;
         int n = arrays.size();
@@ -19,7 +20,8 @@ public:
         }
         return maxDiff;
    
-    //better approach TC-> O(nlogn)
+    //better approach
+    //Time Complexity-> O(nlogn)
         int n = arrays.size();
         vector<pair<int,int>> minVec;
         vector<pair<int,int>> maxVec;
@@ -53,7 +55,8 @@ public:
         return max(diff1, diff2);
 
 
-    //Optimal Approach -> O(n)        
+    //Optimal Approach
+    //Time Complxity-> O(n)        
         int n = arrays.size();
         int minVal = arrays[0][0];
         int maxVal = arrays[0].back();
